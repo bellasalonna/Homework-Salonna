@@ -15,3 +15,6 @@ tribble( ~x, ~y, ~w, ~z,
          110, 122, 131, 128,
 ) -> dt
 dt
+
+# 1a
+map_dbl(dt, mean)
