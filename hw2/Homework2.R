@@ -29,9 +29,7 @@ summary(dt)
 
 
 # 2
-
-# 2a
-exp_means_a <- function(samp_n, samp_rate) {
+exp_means <- function(samp_n, samp_rate) {
   samp_means <- numeric()
   for (i in 1:10000) {
     samp_dist <- rexp(samp_n, rate = samp_rate)
@@ -40,18 +38,20 @@ exp_means_a <- function(samp_n, samp_rate) {
   return (samp_means)
 }
 
-a <-exp_means_a(5, 1)
-hist(a, breaks = 30, col = "red4", main = "#2a: Distribution of Means",
-     xlab = "Mean", ylab = "Frequency" )
+prob2 <-exp_means_a(5, 1)
+hist(prob2, breaks = 30, col = "red4", main = "#2: Distribution of Means",
+     xlab = "Mean", ylab = "Frequency")
 
-# 2b
-exp_means_b <- function(samp_n, samp_rate) {
+# 2a
+exp_means_a <- function(samp_n, samp_rate) {
   map_dbl(1:10000, ~mean(rexp(samp_n, rate = samp_rate)))
   }
 
-b <-exp_means(5, 1)
-hist(b, breaks = 30, col = "blue4", main = "#2b: Distribution of Means",
+a <-exp_means(5, 1)
+hist(a, breaks = 30, col = "blue4", main = "#2a: Distribution of Means",
      xlab = "Mean", ylab = "Frequency" )
+
+# 2b
 
 
 
