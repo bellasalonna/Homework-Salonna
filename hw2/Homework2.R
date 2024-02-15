@@ -47,12 +47,18 @@ exp_means_a <- function(samp_n, samp_rate) {
   map_dbl(1:10000, ~mean(rexp(samp_n, rate = samp_rate)))
   }
 
-a <-exp_means(5, 1)
+a <-exp_means_a(5, 1)
 hist(a, breaks = 30, col = "blue4", main = "#2a: Distribution of Means",
-     xlab = "Mean", ylab = "Frequency" )
+     xlab = "Mean", ylab = "Frequency")
 
 # 2b
+exp_means_b <- function(samp_n, samp_rate) {
+  means <- replicate(1000, mean(rexp(samp_n, samp_rate)))
+}
 
+b <-exp_means_b(5, 1)
+hist(b, breaks = 30, col = "purple4", main = "#2b: Distribution of Means",
+     xlab = "Mean", ylab = "Frequency")
 
 
 
