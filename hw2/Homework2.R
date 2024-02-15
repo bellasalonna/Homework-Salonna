@@ -21,5 +21,7 @@ map_dbl(dt, mean)
 # 1b
 map_dbl(dt, sd)
 
+# 1c
+map(dt, sqrt)
 
 
