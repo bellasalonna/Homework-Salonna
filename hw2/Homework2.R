@@ -28,3 +28,22 @@ map(dt, sqrt)
 summary(dt)
 
 
+# 2
+
+# 2a
+exp_means <- function(samp_n, samp_rate) {
+  samp_means <- numeric()
+  for (i in 1:10000) {
+    samp_dist <- rexp(samp_n, rate = samp_rate)
+    samp_means[i] <- mean(samp_dist)
+  }
+  return (samp_means)
+}
+
+a <-exp_means(5, 1)
+hist(a, breaks = 30, col = "red4", main = "Distribution of Means",
+     xlab = "Mean", ylab = "Frequency" )
+
+
+
+
