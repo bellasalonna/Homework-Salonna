@@ -24,4 +24,7 @@ map_dbl(dt, sd)
 # 1c
 map(dt, sqrt)
 
+# 1d
+summary(dt)
+
 
