@@ -5,7 +5,6 @@
 library(tidyverse)
 
 # 1
-library(tidyverse)
 tribble( ~x, ~y, ~w, ~z,
          210, 300, 220, 180,
          102, 100, 119, 187,
@@ -18,3 +17,9 @@ dt
 
 # 1a
 map_dbl(dt, mean)
+
+# 1b
+map_dbl(dt, sd)
+
+
+
