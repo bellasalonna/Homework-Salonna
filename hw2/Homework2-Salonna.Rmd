@@ -10,6 +10,16 @@ output: html_document
 # Isabella Salonna
 # HW 2
 
+```
+
+<br>
+
+**github link:** https://github.com/bellasalonna/Homework-Salonna/tree/a88ad55c6810b8e523160853d0f87122a432f710/hw2
+
+<br>
+
+```{r}
+
 library(tidyverse)
 
 ```
