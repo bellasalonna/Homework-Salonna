@@ -38,7 +38,7 @@ exp_means <- function() {
   return (samp_means)
 }
 
-prob2 <-exp_means()
+prob2 <- exp_means()
 hist(prob2, breaks = 30, col = "red4", main = "#2: Distribution of Means",
      xlab = "Mean", ylab = "Frequency")
 
@@ -47,7 +47,7 @@ exp_means_a <- function() {
   map_dbl(1:10000, ~mean(rexp(5, rate = 1)))
   }
 
-a <-exp_means_a()
+a <- exp_means_a()
 hist(a, breaks = 30, col = "maroon4", main = "#2a: Distribution of Means",
      xlab = "Mean", ylab = "Frequency")
 
@@ -56,7 +56,7 @@ exp_means_b <- function() {
   means <- replicate(10000, mean(rexp(5, rate = 1)))
 }
 
-b <-exp_means_b()
+b <- exp_means_b()
 hist(b, breaks = 30, col = "purple4", main = "#2b: Distribution of Means",
      xlab = "Mean", ylab = "Frequency")
 
@@ -72,8 +72,12 @@ exp_means_c <- function() {
 
 exp_means_c()
 
-
-
-
+# 3
+output <- double(ncol(mtcars))
+for (i in seq_along(mtcars)) {
+  output[[i]] <- sd(mtcars[[i]])
+}
+names(output) <- colnames(mtcars)
+output
 
 
