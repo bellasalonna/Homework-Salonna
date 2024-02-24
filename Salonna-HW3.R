@@ -3,4 +3,33 @@
 # DATA 413
 # homework 3
 
-# 1
+library(tidyverse)
+library(lubridate)
+
+# 1)
+# for each month, calculate the proportion of rides made on a given day of
+# the month
+wmata
+wmata <- read.csv('wmata_ridership.csv')
+wmata$Date <- as_date(wmata$Date)
+wmata$month <- month(wmata$Date)
+wmata$dayOfMonth <- day(wmata$Date)
+wmata$dayOfWeek <- weekdays(wmata$Date)
+
+wmata <- wmata %>%
+  group_by(month) %>%
+  mutate(total_rides_month = sum(Total))
+
+
+wmata$proportion <- wmata$Total / wmata$total_rides_month
+
+wmata <- wmata %>%
+  filter(year(Date) != 2004 & year(Date) != 2005)
+
+ggplot(wmata, aes(x = factor(dayOfWeek), y = proportion, fill = factor(dayOfWeek))) +
+  geom_boxplot() +
+  labs(x = "Day of the Week", y = "Proportion of Rides", fill = "Week") +
+  ggtitle("Proportion of Rides vs. Day of the Week")
+
+
+
