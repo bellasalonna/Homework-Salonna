@@ -1,0 +1,60 @@
+---
+title: "Salonna-HW3"
+author: "Isabella Salonna"
+date: "2024-02-24"
+output: html_document
+---
+
+```{r}
+
+
+# Isabella Salonna
+# DATA 413
+# homework 3
+
+library(tidyverse)
+library(lubridate)
+
+```
+
+<br>
+**1)**
+<br>
+
+```{r}
+
+wmata <- read.csv('wmata_ridership.csv')
+wmata$Date <- as_date(wmata$Date)
+wmata$month <- month(wmata$Date)
+wmata$dayOfMonth <- day(wmata$Date)
+wmata$dayOfWeek <- weekdays(wmata$Date)
+
+wmata <- wmata %>%
+  group_by(month) %>%
+  mutate(total_rides_month = sum(Total))
+
+
+wmata$proportion <- wmata$Total / wmata$total_rides_month
+
+wmata
+
+wmata <- wmata %>%
+  filter(year(Date) != 2004 & year(Date) != 2005)
+
+ggplot(wmata, aes(x = factor(dayOfWeek), y = proportion, fill = factor(dayOfWeek))) +
+  geom_boxplot() +
+  labs(x = "Day of the Week", y = "Proportion of Rides", fill = "Week") +
+  ggtitle("Proportion of Rides vs. Day of the Week")
+```
+
+<br>
+**2)**
+<br>
+
+```{r}
+years <- leap_year(c(2024, 3021, 2000, 1800, 800, 5050, 600, 7156))
+
+years
+
+
+```
