@@ -23,6 +23,8 @@ wmata <- wmata %>%
 
 wmata$proportion <- wmata$Total / wmata$total_rides_month
 
+wmata
+
 wmata <- wmata %>%
   filter(year(Date) != 2004 & year(Date) != 2005)
 
@@ -30,6 +32,11 @@ ggplot(wmata, aes(x = factor(dayOfWeek), y = proportion, fill = factor(dayOfWeek
   geom_boxplot() +
   labs(x = "Day of the Week", y = "Proportion of Rides", fill = "Week") +
   ggtitle("Proportion of Rides vs. Day of the Week")
+
+# 2
+years <- leap_year(c(2024, 3021, 2000, 1800, 800, 5050, 600, 7156))
+
+years
 
 
 
